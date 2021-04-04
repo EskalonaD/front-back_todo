@@ -1,0 +1,12 @@
+{
+  "name": "front-back_todo",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "frontend": "cd ./frontend && npm start",
+    "backend": "cd ./backend && npm start",
+    "installDeps": "cd ./backend && npm i && cd ../frontend && npm i"
+  },
+  "author": ""
+}

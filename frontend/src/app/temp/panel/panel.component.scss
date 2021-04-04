@@ -1,0 +1,11 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .logout {
+        // align-self: flex-end;
+        cursor: pointer;
+        
+    }
+}

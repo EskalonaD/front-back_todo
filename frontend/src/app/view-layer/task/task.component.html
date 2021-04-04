@@ -1,0 +1,8 @@
+<div class="wrapper">
+    <div class='description' [class.completed]='isCompleted'> {{ description }}</div>
+    <div class="button-container">
+        <button *ngIf='!isCompleted' (click)='completeTask()'>complete</button>
+        <button [routerLink]='[id]' >details</button>
+        <button (click)='deleteTask()'>delete</button>
+    </div>
+</div>

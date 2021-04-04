@@ -1,0 +1,20 @@
+<div>
+    <div class='main-data'>
+        <app-field title='description' [data]='task.description' (changed)='changeData($event)'></app-field>
+        <app-field title='status' [data]='task.status' (changed)='changeData($event)'></app-field>
+    </div>
+    <div class='extra-data'>
+        <app-field *ngFor='let field of fields' [title]='field.fieldName' [data]='field.fieldValue'
+            [type]='field.fieldType' (changed)='changeData($event)'><button
+                (click)='deleteField(field.fieldName)'>Delete field</button></app-field>
+    </div>
+</div>
+<div>
+    <h4>Create new field</h4>
+    <input #fieldNameInput>
+    <button (click)='addField(fieldNameInput)'>add field</button>
+</div>
+<div class="controlled-buttons">
+    <button *ngIf='isDataChanged' (click)='submitTask()'>{{ action }}</button>
+    <button (click)='goToList()'>go to task list</button>
+</div>
