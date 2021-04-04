@@ -21,7 +21,6 @@ export class EditorComponent implements OnInit {
     private route: ActivatedRoute,
     private controller: TasksController,
     private router: Router,
-    // private paramMap: ParamMap
   ) { }
 
   fields: Field[] = [];
@@ -38,11 +37,13 @@ export class EditorComponent implements OnInit {
   ngOnInit(): void {
     this.action = 'create';
     this.isDataChanged = false;
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = this.route.snapshot.paramMap.get('id');
 
-    if (!isNaN(id)) {
+    if (id) {
+      console.log('here', this.route.snapshot.paramMap.get('id'));
+      
       this.action = 'update';
-      this.controller.getTask(id).subscribe(data => {
+      this.controller.getTask(+id).subscribe(data => {
         this.task = data;
         console.log(data)
         this.fields = [...this.task.extraData];
@@ -93,8 +94,6 @@ export class EditorComponent implements OnInit {
 
 
   changeData([fieldName, data]: string[]) {
-
-    console.log('changeData', data)
     if (fieldName === 'description' || fieldName === 'status') {
       this.changes[fieldName] = data;
     }
@@ -117,5 +116,4 @@ export class EditorComponent implements OnInit {
 
     return false;
   }
-
 }

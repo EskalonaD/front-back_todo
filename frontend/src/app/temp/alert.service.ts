@@ -10,8 +10,6 @@ export class AlertService {
   constructor() { }
 
   addError(error: string): void {
-    console.log('addded');
-    
     this.alerts$.next(error);
   }
 

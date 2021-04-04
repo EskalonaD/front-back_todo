@@ -13,7 +13,6 @@ export interface updatedTaskData {
     extra?: Array<Field>
 }
 
-
 export interface TasksModelForView {
     getTasks: () => Observable<unexposedTask[]>;
 }
@@ -42,7 +41,7 @@ export class TasksModel implements TasksModelForView {
             }),
         ).subscribe(tasks => {
             this.tasks.next(tasks)
-        
+
             console.log('getTasks, getValue', this.tasks.value)
         });
 
@@ -52,7 +51,7 @@ export class TasksModel implements TasksModelForView {
     getTask(id: number): Observable<Task> {
         return this.dao.getOne(id).pipe(
             take(1),
-            tap(x=> console.log('get one', x)),
+            tap(x => console.log('get one', x)),
             map(response => this.codec.decode(response.data))
         )
     }
@@ -63,13 +62,11 @@ export class TasksModel implements TasksModelForView {
 
         if (task?.validateChange(data)) return task.addError('Incorrect changes');
 
-
-
+        // should use codec encode method
         const subscpription = this.dao.update(taskID, data).subscribe(response => {
-
             const tasks = this.tasks.getValue();
-            console.log('getValue', tasks)
             const updatedTaskIndex = tasks.findIndex(taskEl => taskEl.id === taskID);
+
             if (response.status === Status.ok) {
                 tasks[updatedTaskIndex] = this.codec.decode(response.data);
                 console.log('tasks', tasks)
@@ -80,25 +77,19 @@ export class TasksModel implements TasksModelForView {
             }
         });
 
-
         subscpription.add(() => this.isLoading = false);
 
         this.timeoutUnsubscribe(subscpription);
     }
 
-
-
     changeTaskDescription(id: number, description: string): void {
-        const tasks = this.tasks.getValue();
-        // const task = this.codec.encode(tasks.find(el => el.id === id))
         this.dao.update(id, { description }).pipe(
             take(1),
         ).subscribe(
             response => {
-                console.log('response', response)
-
                 const tasks = this.tasks.getValue();
                 const updatedTaskIndex = tasks.findIndex(taskEl => taskEl.id === id);
+
                 if (response.status === Status.ok) {
                     tasks[updatedTaskIndex]?.completeTask();
                 }
@@ -109,21 +100,13 @@ export class TasksModel implements TasksModelForView {
     }
 
     completeTask(id: number): void {
-
-        // todo: loading decorator
-
-
-
-        const tasks = this.tasks.getValue();
-        // const task = this.codec.encode(tasks.find(el => el.id === id))
         this.dao.update(id, { status: 'completed' }).pipe(
             take(1),
         ).subscribe(
             response => {
-                console.log('response', response)
-
                 const tasks = this.tasks.getValue();
                 const updatedTaskIndex = tasks.findIndex(taskEl => taskEl.id === id);
+
                 if (response.status === Status.ok) {
                     tasks[updatedTaskIndex]?.completeTask();
                 }
@@ -133,15 +116,10 @@ export class TasksModel implements TasksModelForView {
             })
     }
 
-
-    addTask(data: Partial<TaskChanges>) {
-
-    }
+    //todo implement
+    addTask(data: Partial<TaskChanges>) { }
 
     deleteTask(taskId: number) {
-        // todo: loading decorator
-
-
         this.dao.delete(taskId).pipe(
             take(1),
         ).subscribe(response => {
@@ -160,12 +138,6 @@ export class TasksModel implements TasksModelForView {
         })
 
     }
-
-    setTaskStatus(taskId: number, status: string): void {
-
-    }
-
-
 
     private timeoutUnsubscribe(sub: Subscription): void {
         const timeConstrain = 7000;

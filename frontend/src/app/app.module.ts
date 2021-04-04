@@ -13,8 +13,6 @@ import { TasksController } from './controller/tasks.controller';
 import { TasksModel } from './model-layer/tasks.model';
 import { FieldComponent } from './view-layer/field/field.component';
 
-const factory = () => TasksController.getController(TasksModel)
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +31,9 @@ const factory = () => TasksController.getController(TasksModel)
     {
       provide: APP_INITIALIZER, useValue: (new Initiazer).init, multi: true,
     },
-{ provide: TasksController, useValue: TasksController.getController(TasksModel)}
+    {
+      provide: TasksController, useValue: TasksController.getController(TasksModel)
+    },
   ],
   bootstrap: [AppComponent]
 })

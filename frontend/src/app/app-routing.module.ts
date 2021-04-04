@@ -8,17 +8,6 @@ import { EditorComponent } from './view-layer/editor/editor.component';
 import { PageNotFoundComponent } from './view-layer/page-not-found/page-not-found.component';
 import { TasksComponent } from './view-layer/tasks/tasks.component';
 
-// const routes: Routes = [
-//   { path: 'login', component: LoginComponent },
-//   { path: '', pathMatch: 'full', redirectTo: 'tasks' },
-//   { path: 'tasks/create', component: EditorComponent },
-//   { path: 'tasks/:id', component: EditorComponent },
-//   { path: 'tasks', component: TasksComponent, },
-//   { path: '**', component: PageNotFoundComponent },
-// ];
-
-
-
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -35,6 +24,7 @@ const routes: Routes = [
     ]
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

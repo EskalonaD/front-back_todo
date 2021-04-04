@@ -22,8 +22,6 @@ export type Field = {
     fieldType?: string;
 }
 
-// todo: think about inner state that will store errors 
-
 export class StandardTask implements Task {
     constructor(
         private _description: string,
@@ -49,32 +47,24 @@ export class StandardTask implements Task {
 
 
     set status(newStatus: string) {
-        if(this.validateStatus(newStatus)) {
-            // this.removeError(TaskFields.status);
+        if (this.validateStatus(newStatus)) {
             this._status = newStatus;
         }
-
-        // this._errorList.push({field: TaskFields.status, message: fieldErrorBaseMessages.wrongData})
     }
     get status() {
         return this._status;
     }
 
-    // private removeErrors(errorField: string): void {
-    //     this._errorList.filter(fieldError => fieldError.field = errorField);
-    // }
-
-addError(error: string): void {
-    this._errorList.push(error);
-}
+    addError(error: string): void {
+        this._errorList.push(error);
+    }
 
     addField(fieldName: string, fieldValue: any, fieldType?: string): void {
-        const field: Field = { fieldName, fieldValue, ...(fieldType && {fieldType}) };
-        if (this.validateFieldAdding(field) ) {
+        const field: Field = { fieldName, fieldValue, ...(fieldType && { fieldType }) };
+        if (this.validateFieldAdding(field)) {
             this.extraFields.push(field);
         }
 
-        // this.removeError(fieldName);
         this.extraFields.push(field);
     }
 
@@ -83,11 +73,11 @@ addError(error: string): void {
         //stub
         return true;
     }
-    
 
 
-    set description (newDescription: string) {
-        if(this.validateDescription(newDescription)) {
+
+    set description(newDescription: string) {
+        if (this.validateDescription(newDescription)) {
             this._description = newDescription;
         }
     }
@@ -97,22 +87,13 @@ addError(error: string): void {
     }
 
     get errorList(): readonly string[] {
-        return this._errorList; 
-    } 
+        return this._errorList;
+    }
 
     get statusList() {
         return this._statusList;
     }
 
-    // todo: implement
-    update(): void {
-
-    }
-    
-    //todo: inplement
-    deleteField(fieldName: string): void {
-
-    }
 
     get extraData(): readonly Field[] {
         return this.extraFields;
@@ -122,19 +103,15 @@ addError(error: string): void {
     //@ts-ignore
     validateChange(change): boolean {
         return true
-     }
-
+    }
 
     private validateFieldValue(value: any, prop: string, type?: string): boolean {
         return value !== '';
     }
 
-
     private validateStatus(value: string): boolean {
         return this._statusList.includes(value) || value.toLowerCase() === BaseStatusList.completed;
     }
-
-
 
     private validateDescription(value: string): boolean {
         return value !== '';
@@ -144,13 +121,8 @@ addError(error: string): void {
         this.status = BaseStatusList.completed;
     }
 
-
-
     //todo: implement patterns
     //@ts-ignore
     clone(): Task { }
     accept() { }
-
-
-
 }

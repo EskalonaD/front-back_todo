@@ -13,5 +13,4 @@ export class PageNotFoundComponent  {
   goBack():void {
     this.loc.back();
   }
-
 }

@@ -54,7 +54,8 @@ export class TaskController {
         if (changes.status) task.data.main.status = changes.status;
         if (changes.description) task.data.main.description = changes.description;
         Object.assign(task.data.extra, changes.extra);
-        task.data.extra = task.data.extra.filter(field => field.operation !== 'delete');
+        //@ts-ignore
+        task.data.extra = Object.fromEntries(Object.entries(task.data.extra).filter(([, field]) => field.operation !== 'delete'));
 
         return this.createResponse(Status.ok, task); 
     }

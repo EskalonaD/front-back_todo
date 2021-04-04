@@ -12,12 +12,10 @@ $content-padding: 3px 10px;
     border-right: 1px solid black;
     display: flex;
     align-items: center;
-    // flex-basis: content;
   }
 
   .description {
     padding: $content-padding;
-    // flex-basis: content;
 
     &.completed {
       text-decoration: line-through;
@@ -28,10 +26,6 @@ $content-padding: 3px 10px;
     padding: $content-padding;
     justify-self: flex-end;
     margin-left: auto;
-    // width: 100%;
-    // flex-basis: 100%;
-
-    // justify-self: flex-start;
 
     button {
       margin-left: 3px;

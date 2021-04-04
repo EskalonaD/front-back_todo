@@ -1,7 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { TaskDTO } from './dto/task.dto';
-import { TaskService } from './task/task.service';
+
 
 @Controller()
 export class AppController {

@@ -20,7 +20,6 @@ export class TasksComponent extends TasksView implements OnInit {
 
   ngOnInit(): void {
     this.tasks = this.controller.getTasks();
-    console.log(this.route);
   }
 
   goToEditor(editorType: 'update', taskID: number): void;

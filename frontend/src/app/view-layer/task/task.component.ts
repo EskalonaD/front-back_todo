@@ -1,6 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { unexposedTask } from 'src/app/model-layer';
-import { BaseStatusList } from 'src/app/model-layer/task/task';
 
 @Component({
   selector: 'app-task',
@@ -15,11 +13,6 @@ export class TaskComponent implements OnInit {
   @Output() onDetails = new EventEmitter<number>();
   @Output() onComplete = new EventEmitter<number>();
 
-
-
-  // description: string;
-  // status: string;
-  // id: number;
   @Input() isCompleted!: boolean;
 
 
@@ -36,7 +29,6 @@ export class TaskComponent implements OnInit {
   deleteTask(): void {
     this.onDelete.emit(this.id);
   }
-
 
   openDetails(): void {
     this.onDetails.emit(this.id);

@@ -1,11 +1,8 @@
 <div class='wrapper'>
     <nav>
-
         <a class="button" routerLink='tasks'>Tasks</a>
         <a class="button" [routerLink]="['other']">Other</a>
     </nav>
     <div class="button logout" (click)='logout()'>logout</div>
-    <!-- <span class="button logout" (click)='logout()'>logout</span> -->
 </div>
 <router-outlet></router-outlet>
-  

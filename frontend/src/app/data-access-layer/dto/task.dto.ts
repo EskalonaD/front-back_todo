@@ -1,6 +1,3 @@
-import { DAOContext } from '../data-access.interface';
-import { Task } from '../../model-layer';
-
 export interface TaskAPI {
     metadata: {
         statusList: string[];
@@ -8,7 +5,6 @@ export interface TaskAPI {
     },
     data: {
         main: {
-
             status: string;
             description: string;
         },

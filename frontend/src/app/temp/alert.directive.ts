@@ -10,21 +10,13 @@ import { AlertComponent } from './alert/alert.component';
 export class AlertDirective implements OnDestroy {
 
   constructor(private alertService: AlertService, private vcr: ViewContainerRef, private cfr: ComponentFactoryResolver) {
-
-    // this.errorSubscription = this.errors$.subscribe(error => {
-    //   const ref = this.createAlert(error);
-
-    //   setTimeout(() => {
-    //     if (!this.keptComponents.includes(ref)) ref.destroy();
-    //   }, 5000)
-    // });
   }
+
   errors$ = this.alertService.getError();
   keptComponents: ComponentRef<AlertComponent>[] = [];
   errorSubscription: Subscription;
 
   ngOnInit() {
-
     this.errorSubscription = this.errors$.subscribe(error => {
       const ref = this.createAlert(error);
 
@@ -43,6 +35,7 @@ export class AlertDirective implements OnDestroy {
     const componentRef = this.vcr.createComponent(factory);
 
     componentRef.instance.errorMessage = error;
+    
     componentRef.instance.closed.subscribe(() => {
       this.keptComponents = this.keptComponents.filter(ref => ref !== componentRef);
       componentRef.hostView.destroy();

@@ -1,7 +1,6 @@
 import { TaskAPI } from 'src/app/data-access-layer/dto/task.dto';
 import { Codec, Task } from '../interfaces';
 import { Field, StandardTask } from '../task/task';
-import { EncodeVisitor } from '../visitor/encode-visitor';
 
 export class TaskCodec implements Codec<TaskAPI, Task> {
     path = '';

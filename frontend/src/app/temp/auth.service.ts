@@ -6,7 +6,6 @@ import { TempModule } from './temp.module';
   providedIn: 'root',
 })
 export class AuthService {
-
   constructor(private router: Router, private route: ActivatedRoute) {
     this.isAuthenticated = sessionStorage.getItem('isAuth') === 'true';
   }

@@ -16,7 +16,6 @@ export class RegisterComponent {
 
 
   private validate(): boolean {
-    // console.log(this.login.nat, this.passwordRepeat, this.password);
     if([this.login.nativeElement.value, this.password.nativeElement.value, this.passwordRepeat.nativeElement.value].includes('')) {
       this.alertService.addError('Login or password should not be blank');
       return false;
@@ -32,8 +31,7 @@ export class RegisterComponent {
 
   signUp() {
     const validation = this.validate();
-    
-    
+        
     if (validation) this.router.navigate(['login']);
   }
 

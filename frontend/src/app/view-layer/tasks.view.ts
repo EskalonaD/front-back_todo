@@ -7,7 +7,6 @@ export class TasksView {
     // composition due to possibility of incorrect work of aggregation using angular
     constructor() {
         this.controller = TasksController.getController(TasksModel);
-        // this.tasks = this.controller.getTasks();
     }
 
     tasks!: Observable<unexposedTask[]>;
@@ -16,10 +15,6 @@ export class TasksView {
 
     completeTask(id:number) { 
         this.controller.completeTask(id);
-    }
-
-    changeDescription(id: number, newDescription: string) {
-        this.controller.changeDescription(id, newDescription);
     }
 
     updateTask(id: number, changes:updatedTaskData): void {

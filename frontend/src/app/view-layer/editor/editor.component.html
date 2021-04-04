@@ -4,9 +4,16 @@
         <app-field title='status' [data]='task.status' (changed)='changeData($event)'></app-field>
     </div>
     <div class='extra-data'>
-        <app-field *ngFor='let field of fields' [title]='field.fieldName' [data]='field.fieldValue'
-            [type]='field.fieldType' (changed)='changeData($event)'><button
-                (click)='deleteField(field.fieldName)'>Delete field</button></app-field>
+        <app-field *ngFor='let field of fields' 
+            [title]='field.fieldName' 
+            [data]='field.fieldValue'
+            [type]='field.fieldType' 
+            (changed)='changeData($event)'
+        >
+            <button (click)='deleteField(field.fieldName)'>
+                Delete field
+            </button>
+        </app-field>
     </div>
 </div>
 <div>

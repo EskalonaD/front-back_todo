@@ -7,9 +7,7 @@ export interface Task extends unexposedTask {
     clone(): Task;
     accept(visitor: TaskVisitor): any;
     completeTask(): void;
-    update(): void;
     addField(fieldName: string, fieldValue: any, fieldType?: string): void;
-    deleteField(fieldName: string): void;
     addError(error: string): void;
 }
 
