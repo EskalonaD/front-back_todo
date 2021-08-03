@@ -1,34 +1,34 @@
+.card {
+.btn-group {
+float: right;
+}
+}
+
+
 $content-padding: 3px 10px;
 
 .wrapper {
-  padding: 0px;
-  border: 1px solid black;
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-start;
+display: flex;
+align-items: stretch;
+justify-content: flex-start;
 
-  .checkbox-container {
-    padding: $content-padding;
-    border-right: 1px solid black;
-    display: flex;
-    align-items: center;
-  }
+.checkbox-container {
+padding: $content-padding;
+display: flex;
+align-items: center;
+}
 
-  .description {
-    padding: $content-padding;
+.description {
+padding: $content-padding;
 
-    &.completed {
-      text-decoration: line-through;
-    }
-  }
+&.completed {
+text-decoration: line-through;
+}
+}
 
-  .button-container {
-    padding: $content-padding;
-    justify-self: flex-end;
-    margin-left: auto;
-
-    button {
-      margin-left: 3px;
-    }
-  }
+.button-container {
+padding: $content-padding;
+justify-self: flex-end;
+margin-left: auto;
+}
 }
