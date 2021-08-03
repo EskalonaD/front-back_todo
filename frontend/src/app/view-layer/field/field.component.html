@@ -1,4 +1,4 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
     <div>{{ title }}</div>
     <input 
         type="text" 
@@ -7,4 +7,18 @@
         (input)='onChange(input.value)'
     >
 </div>
-<ng-content></ng-content>
+<ng-content></ng-content> -->
+
+<div class="mb-3">
+    <div class="form-floating mb-1">
+        <input type="text" class="form-control" placeholder="{{ title }}"
+        [value]="data || null" 
+        #input 
+        (input)='onChange(input.value)'
+        >
+        <label>{{ title }}</label>
+    </div>
+    
+    <ng-content></ng-content>    
+</div>
+  
