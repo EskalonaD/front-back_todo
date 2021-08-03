@@ -1,8 +1,25 @@
-<div class='wrapper'>
-    <nav>
-        <a class="button" routerLink='tasks'>Tasks</a>
-        <a class="button" [routerLink]="['other']">Other</a>
-    </nav>
-    <div class="button logout" (click)='logout()'>logout</div>
-</div>
-<router-outlet></router-outlet>
+<main>
+    <section class="py-5 text-center container">
+
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container-fluid">
+              <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link" routerLink='tasks'>Tasks</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['other']">Link</a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <button class="btn btn-outline-success" type="submit" (click)='logout()'>logout</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+          
+          <router-outlet></router-outlet>
+
+    </section>
+</main>

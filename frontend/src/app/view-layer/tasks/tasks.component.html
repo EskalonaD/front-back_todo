@@ -8,5 +8,7 @@
 		(onComplete)="completeTask($event)"
 		(onDetails)="goToEditor('update', $event)"
 	></app-task>
-	<div><button (click)="goToEditor('create')">add task</button></div>
+	<div>
+		<button class="btn btn-primary mt-3" (click)="goToEditor('create')">Add task</button>
+	</div>
 </div>

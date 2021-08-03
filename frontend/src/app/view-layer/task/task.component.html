@@ -1,8 +1,25 @@
-<div class="wrapper">
+<!-- <div class="wrapper">
     <div class='description' [class.completed]='isCompleted'> {{ description }}</div>
     <div class="button-container">
         <button *ngIf='!isCompleted' (click)='completeTask()'>complete</button>
         <button [routerLink]='[id]' >details</button>
         <button (click)='deleteTask()'>delete</button>
     </div>
-</div>
+</div> -->
+
+<div class="card">
+    <div class="row g-0">
+        <div class="col-md-8">
+            <div class="card-body wrapper">
+                <div class='description' [class.completed]='isCompleted'> {{ description }}</div>
+            </div>
+        </div>
+        <div class="col-md-4 p-3">
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary" *ngIf='!isCompleted' (click)='completeTask()'>Complete</button>
+                <button type="button" class="btn btn-outline-primary" [routerLink]='[id]'>Details</button>
+                <button type="button" class="btn btn-outline-primary" (click)='deleteTask()'>Delete</button>
+              </div>
+        </div>
+      </div>
+  </div>
