@@ -1,2 +1,6 @@
-<p class="message">{{errorMessage}}</p>
-<p class='close' (click)='close()'>x</p>
+<div class="container">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    {{errorMessage}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)='close()'></button>
+  </div>
+</div>

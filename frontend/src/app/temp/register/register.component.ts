@@ -35,4 +35,7 @@ export class RegisterComponent {
     if (validation) this.router.navigate(['login']);
   }
 
+  onSubmit(event){
+    event.preventDefault();
+  }
 }

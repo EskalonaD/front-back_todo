@@ -3,7 +3,6 @@
 		[id]='task.id'
 		[isCompleted]='task.status === "completed"'
 		[description]='task.description'
-
 		(onDelete)="deleteTask($event)"
 		(onComplete)="completeTask($event)"
 		(onDetails)="goToEditor('update', $event)"
