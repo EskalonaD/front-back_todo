@@ -15,6 +15,7 @@ export class AuthService {
   login() {
     this.isAuthenticated = true;
     const url = this.route.snapshot.queryParams['returned-url'] || '/';
+    console.log('url', url)
     sessionStorage.setItem('isAuth', 'true');
     this.router.navigateByUrl(url);
 
@@ -24,6 +25,6 @@ export class AuthService {
     this.isAuthenticated = false;
     sessionStorage.setItem('isAuth', 'false');
 
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/in-app/login');
   }
 }

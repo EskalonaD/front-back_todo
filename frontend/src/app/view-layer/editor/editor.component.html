@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row mt-3">
     <div class="col">
         <app-field id='description' title='description' [data]='task.description' (changed)='changeData($event)'></app-field>
     </div>
@@ -6,21 +6,8 @@
         <app-field id='status' title='status' [data]='task.status' (changed)='changeData($event)'></app-field>        
     </div>
 </div>
-
 <div>
-    <!-- <div class='main-data'>
-        <app-field title='description' [data]='task.description' (changed)='changeData($event)'></app-field>
-        <app-field title='status' [data]='task.status' (changed)='changeData($event)'></app-field>
-    </div> -->
     <div class='extra-data'>
-        <!-- <div class="row">
-            <div class="col-8">
-                <app-field id='description' title='description' [data]='task.description' (changed)='changeData($event)'></app-field>
-            </div>
-            <div class="col-4">
-                <app-field id='status' title='status' [data]='task.status' (changed)='changeData($event)'></app-field>        
-            </div>
-        </div> -->
         <app-field *ngFor='let field of fields' 
             [title]='field.fieldName' 
             [data]='field.fieldValue'
@@ -31,23 +18,15 @@
         </app-field>
     </div>
 </div>
-
 <div class="mb-3">
     <div class="form-floating mb-2">
         <input type="text" class="form-control" id="floatingCreateNewField" placeholder="Create new field" #fieldNameInput>
         <label for="floatingCreateNewField">Create new field</label>
     </div>
-    <button type="submit" class="btn btn-success" (click)='addField(fieldNameInput)'>Add field</button> 
+    <button type="submit" class="btn btn-outline-primary" (click)='addField(fieldNameInput)'>Add field</button> 
 </div>
-
-<!-- <div>
-    <h4>Create new field</h4>
-    <input #fieldNameInput>
-    <button (click)='addField(fieldNameInput)'>add field</button>
-</div> -->
 <div class="controlled-buttons">
-    <button type="submit" class="btn btn-success" *ngIf='isDataChanged' (click)='submitTask()'>{{ action }}</button>
+    <button type="submit" class="btn btn-primary" *ngIf='isDataChanged' (click)='submitTask()'>{{ action }}</button>
 </div>
-
 <hr>
-<button type="submit" class="btn btn-outline-success" (click)='goToList()'>Go to task list</button>
+<button type="submit" class="btn btn-primary" (click)='goToList()'>Go to task list</button>

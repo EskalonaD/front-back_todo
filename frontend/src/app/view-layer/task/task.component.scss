@@ -1,34 +1,33 @@
 .card {
-.btn-group {
-float: right;
+    .btn-group {
+        float: right;
+    }
 }
-}
-
 
 $content-padding: 3px 10px;
 
 .wrapper {
-display: flex;
-align-items: stretch;
-justify-content: flex-start;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
 
-.checkbox-container {
-padding: $content-padding;
-display: flex;
-align-items: center;
-}
+    .checkbox-container {
+        padding: $content-padding;
+        display: flex;
+        align-items: center;
+    }
 
-.description {
-padding: $content-padding;
+    .description {
+        padding: $content-padding;
 
-&.completed {
-text-decoration: line-through;
-}
-}
+        &.completed {
+            text-decoration: line-through;
+        }
+    }
 
-.button-container {
-padding: $content-padding;
-justify-self: flex-end;
-margin-left: auto;
-}
+    .button-container {
+        padding: $content-padding;
+        justify-self: flex-end;
+        margin-left: auto;
+    }
 }

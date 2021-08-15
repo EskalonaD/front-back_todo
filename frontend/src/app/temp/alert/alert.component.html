@@ -1,2 +1,12 @@
-<p class="message">{{errorMessage}}</p>
-<p class='close' (click)='close()'>x</p>
+<div class="custom-container">
+  <div class="custom-alert" role="alert">
+    <ul>
+      <li *ngFor='let error of errors'>
+        {{ error }}
+      </li>
+    </ul>
+    <button class="button-close" aria-label="Close" (click)='close()'>
+      &#10006;
+    </button>
+  </div>
+</div>

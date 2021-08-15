@@ -12,6 +12,8 @@ import { EditorComponent } from './view-layer/editor/editor.component';
 import { TasksController } from './controller/tasks.controller';
 import { TasksModel } from './model-layer/tasks.model';
 import { FieldComponent } from './view-layer/field/field.component';
+import { InAppComponent } from './temp/in-app/in-app.component';
+import { LogoComponent } from './temp/logo/logo.component';
 
 @NgModule({
   declarations: [
