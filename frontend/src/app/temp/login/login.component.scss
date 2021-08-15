@@ -1,11 +1,11 @@
-.form-signin {
-    width: 100%;
-    max-width: 330px;
-    padding: 15px;
-    margin: auto;
+    .heading {
+        margin-bottom: 1rem;
+        font-size: calc(1.3rem + .6vw);
+    }
 
     .checkbox {
         font-weight: 400;
+        margin-bottom: 1rem;
     }
 
     .form-floating:focus-within {
@@ -31,7 +31,6 @@
         -moz-user-select: none;
         user-select: none;
     }
-}
     
 @media (min-width: 768px) {
     .bd-placeholder-img-lg {

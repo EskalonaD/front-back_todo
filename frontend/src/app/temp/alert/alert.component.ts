@@ -13,7 +13,12 @@ export class AlertComponent {
     this.focused.emit(null);
   }
 
-  @Input() errorMessage: string;
+  errors = [];
+
+  @Input() set errorMessage (error) {
+    console.log('ERRORS', this.errors)
+    this.errors.push(error);
+  } 
 
   close() {
     this.closed.emit(null);

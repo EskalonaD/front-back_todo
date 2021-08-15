@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './temp/auth.guard';
+import { InAppComponent } from './temp/in-app/in-app.component';
 import { LoginComponent } from './temp/login/login.component';
 import { PanelComponent } from './temp/panel/panel.component';
 import { RegisterComponent } from './temp/register/register.component';
@@ -9,8 +10,11 @@ import { PageNotFoundComponent } from './view-layer/page-not-found/page-not-foun
 import { TasksComponent } from './view-layer/tasks/tasks.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'in-app', component: InAppComponent, children: [
+
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
+  ] },
   {
     path: '', 
     component: PanelComponent, 

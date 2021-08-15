@@ -1,0 +1,44 @@
+$width-offset: 50px;
+
+:host {
+    display: block;
+    position: relative;
+    width: 100vw;
+    margin-bottom: 10px;
+    // width: 100px;
+}
+
+.custom-container {
+    position: absolute;
+    width: calc(100% - (2 * #{$width-offset}));
+    // width: 100%;
+    left: $width-offset;
+    // right: 50px;
+
+    .custom-alert {
+        padding-right: 3rem;
+        color: #842029;
+        background-color: #f8d7da;
+        border-color: #f5c2c7;
+        position: relative;
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+    
+        .button-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+            border: none;
+            background-color: transparent;
+            color: #000 !important;
+        }
+    }
+}
+
+
+ul {
+    padding-left: 25px;
+}

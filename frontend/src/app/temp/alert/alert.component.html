@@ -1,6 +1,12 @@
-<div class="container">
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
-    {{errorMessage}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)='close()'></button>
+<div class="custom-container">
+  <div class="custom-alert" role="alert">
+    <ul>
+      <li *ngFor='let error of errors'>
+        {{ error }}
+      </li>
+    </ul>
+    <button class="button-close" aria-label="Close" (click)='close()'>
+      &#10006;
+    </button>
   </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AlertService } from '../alert.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class RegisterComponent {
   @ViewChild('password', {read: ElementRef}) password: ElementRef<HTMLInputElement>;
   @ViewChild('passwordRepeat', {read: ElementRef}) passwordRepeat: ElementRef<HTMLInputElement>;
 
-  constructor(private alertService: AlertService, private router: Router) { }
+  constructor(private alertService: AlertService, private router: Router, private route: ActivatedRoute) { }
 
 
   private validate(): boolean {
@@ -32,7 +32,7 @@ export class RegisterComponent {
   signUp() {
     const validation = this.validate();
         
-    if (validation) this.router.navigate(['login']);
+    if (validation) this.router.navigate(['login'], { relativeTo: this.route.parent });
   }
 
   onSubmit(event){
